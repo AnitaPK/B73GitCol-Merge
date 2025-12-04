@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Recipe Collection — Multi Category</title>
+  <style>
+    :root{--bg:#f6f7fb;--card:#ffffff;--muted:#6b7280;--accent:#ff6b6b}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;line-height:1.4;margin:0;background:var(--bg);color:#111}
+
+    header{background:linear-gradient(90deg,#ff9a9e33, #fad0c433);padding:28px 20px}
+    .wrap{max-width:1200px;margin:0 auto}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:52px;height:52px;border-radius:10px;background:url('https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/paneer-butter-masala-recipe-2.jpg') center/cover;border:4px solid white}
+    h1{font-size:22px;margin:0}
+    header p{margin:6px 0 0;color:var(--muted)}
+
+    /* Controls */
+    .controls{display:flex;gap:12px;align-items:center;margin:20px 0}
+    .search{flex:1}
+    .search input{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e7ec}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{background:var(--card);padding:8px 12px;border-radius:999px;border:1px solid #e6e7ec;cursor:pointer}
+    .btn.active{border-color:var(--accent);box-shadow:0 6px 18px rgba(255,107,107,0.12)}
+
+    /* Grid of cards */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+
+    .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(18,18,18,0.06);display:flex;flex-direction:column}
+    .card img{width:100%;height:190px;object-fit:cover}
+    .card .body{padding:14px;flex:1;display:flex;flex-direction:column}
+    .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .title{font-weight:700;margin:0;font-size:16px}
+    .small{color:var(--muted);font-size:13px}
+    .chips{display:flex;gap:8px;margin-top:12px}
+    .chip{background:#f3f4f6;padding:6px 10px;border-radius:999px;font-size:12px}
+    .actions{display:flex;gap:8px;margin-top:auto}
+    .primary{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.4);padding:20px}
+    .modal.open{display:flex}
+    .dialog{width:100%;max-width:980px;background:#fff;border-radius:12px;overflow:auto;max-height:90vh}
+    .dialog .hero{display:flex;gap:20px;padding:18px}
+    .hero img{width:420px;height:320px;object-fit:cover;border-radius:10px}
+    .dialog .content{padding:0 18px 18px}
+    .dialog h2{margin:6px 0}
+    .info-grid{display:flex;gap:12px;flex-wrap:wrap}
+    .info-box{background:#fafafa;padding:10px;border-radius:8px;font-size:14px}
+
+    .ingredients, .steps{padding:16px;border-top:1px dashed #eee}
+    .gallery{display:flex;gap:8px;padding:16px}
+    .gallery img{width:120px;height:80px;object-fit:cover;border-radius:8px}
+
+    footer{padding:26px 20px;text-align:center;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>My Recipe Collection</h1>
+          <p>Indian • Fast Food • Desserts • International • Drinks</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" style="padding:22px">
+    <div class="controls">
+      <div class="search"><input id="search" placeholder="Search recipes, ingredients or category"/></div>
+      <div class="filters" id="filters">
+        <button class="btn active" data-cat="all">All</button>
+        <button class="btn" data-cat="indian">Indian</button>
+        <button class="btn" data-cat="fastfood">Fast Food</button>
+        <button class="btn" data-cat="dessert">Desserts</button>
+        <button class="btn" data-cat="international">International</button>
+        <button class="btn" data-cat="drinks">Drinks</button>
+      </div>
+    </div>
+
+    <section class="grid" id="grid">
+      <!-- Cards injected by JS -->
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="dialog" role="dialog" aria-modal="true">
+      <div class="hero">
+        <img id="modal-img" src="" alt="recipe" />
+        <div style="flex:1;padding-right:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><h2 id="modal-title"></h2><div id="modal-rating" class="small"></div></div>
+          <p id="modal-desc" class="small"></p>
+          <div class="info-grid" style="margin-top:12px">
+            <div class="info-box"><strong>Prep:</strong> <span id="modal-prep"></span></div>
+            <div class="info-box"><strong>Cook:</strong> <span id="modal-cook"></span></div>
+            <div class="info-box"><strong>Serves:</strong> <span id="modal-serves"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="ingredients">
+          <h3>Ingredients</h3>
+          <ul id="modal-ingredients"></ul>
+        </div>
+        <div class="steps">
+          <h3>Steps</h3>
+          <ol id="modal-steps"></ol>
+        </div>
+        <div class="gallery" id="modal-gallery"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Built with ❤️ by Apeksha — edit or export as needed.
+  </footer>
+
+  <script>
+    const recipes = [
+      {
+        id:1, title:'Paneer Butter Masala', cat:'indian', img:'https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/paneer-butter-masala-recipe-2.jpg', rating:4.8,
+        desc:'Creamy North Indian curry with paneer cubes and rich tomato-cashew gravy.', prep:'15 mins', cook:'25 mins', serves:'2',
+        ingredients:[ '200g paneer','2 tomatoes','1 onion','1 tbsp butter','1/2 cup cream','8 cashews','salt & spices'],
+        steps:[ 'Sauté onions, ginger and garlic.','Add tomatoes + cashews and cook until soft.','Blend to a smooth paste.','Cook paste with spices and cream.','Add paneer cubes and simmer 5 minutes.'],
+        gallery:[ 'https://www.cookwithmanali.com/wp-content/uploads/2019/05/Paneer-Butter-Masala.jpg','https://cdn.mygingergarlickitchen.com/images/800px/800px-restaurant-style-paneer-butter-masala-recipe-1.jpg'
+        ]
+      },
+
+      { id:2, title:'Masala Dosa', cat:'indian', img:'https://www.vegrecipesofindia.com/wp-content/uploads/2019/09/masala-dosa-recipe-1.jpg', rating:4.3, desc:'Crispy crepe made from fermented batter with spicy potato filling.', prep:'20 mins', cook:'15 mins', serves:'2',
+        ingredients:[ 'Dosa batter 2 cups','3 potatoes boiled & mashed','1 onion','1/2 tsp turmeric','mustard seeds','curry leaves'],
+        steps:['Prepare potato masala with spices.','Spread dosa batter thin on hot tawa.','Add filling and fold.','Serve with chutney & sambar.'], gallery:[] },
+
+      { id:3, title:'Veg Burger', cat:'fastfood', img:'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=60', rating:4.1, desc:'Juicy veg patty with fresh veggies and sauces.', prep:'10 mins', cook:'10 mins', serves:'1',
+        ingredients:['Burger buns','Veg patty','Lettuce','Tomato','Mayo or sauce'], steps:['Toast buns.','Fry patty until golden.','Assemble with veggies and sauces.'], gallery:[] },
+
+      { id:4, title:'French Fries', cat:'fastfood', img:'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=60', rating:4.7, desc:'Crispy golden fries — perfect snack.', prep:'8 mins', cook:'12 mins', serves:'2', ingredients:['3 large potatoes','Oil for frying','Salt'], steps:['Cut potatoes into strips.','Blanch then deep fry until crispy.'], gallery:[]},
+
+      { id:5, title:'Chocolate Cake', cat:'dessert', img:'https://images.unsplash.com/photo-1542827638-8b0b7487a9f0?auto=format&fit=crop&w=800&q=60', rating:4.9, desc:'Moist chocolate cake with rich frosting.', prep:'15 mins', cook:'30 mins', serves:'8', ingredients:['1.5 cups flour','1 cup sugar','1/2 cup cocoa powder','2 eggs','1/2 cup milk'], steps:['Mix dry ingredients.','Add wet ingredients.','Bake at 180°C for 30 mins.'], gallery:[]},
+
+      { id:6, title:'Gulab Jamun', cat:'dessert', img:'https://images.unsplash.com/photo-1617196036031-dda0c6b5f3f4?auto=format&fit=crop&w=800&q=60', rating:4.4, desc:'Soft milk-solid dumplings soaked in rose-scented syrup.', prep:'10 mins', cook:'15 mins', serves:'4', ingredients:['1 cup khoya','2 tbsp maida','Sugar syrup'], steps:['Knead dough and shape balls.','Deep fry and soak in warm syrup.'], gallery:[]},
+
+      { id:7, title:'Pasta Alfredo', cat:'international', img:'https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=60', rating:4.6, desc:'Creamy white sauce pasta with parmesan.', prep:'8 mins', cook:'12 mins', serves:'2', ingredients:['200g pasta','1/2 cup cream','1/2 cup parmesan','2 tbsp butter'], steps:['Boil pasta.','Make sauce and mix with pasta.'], gallery:[]},
+
+      { id:8, title:'Tacos', cat:'international', img:'https://images.unsplash.com/photo-1604908177121-9b6a6c8d9d6c?auto=format&fit=crop&w=800&q=60', rating:4.2, desc:'Crispy tacos loaded with beans and salsa.', prep:'10 mins', cook:'10 mins', serves:'4', ingredients:['Taco shells','Beans','Lettuce','Salsa'], steps:['Warm shells.','Fill with beans, lettuce and salsa.'], gallery:[]},
+
+      { id:9, title:'Cold Coffee', cat:'drinks', img:'https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=60', rating:4.8, desc:'Iced blended coffee with milk and sugar.', prep:'5 mins', cook:'0 mins', serves:'1', ingredients:['1 cup milk','1 tsp instant coffee','2 tbsp sugar','Ice cubes'], steps:['Blend all ingredients until frothy.'], gallery:[] },
+
+      { id:10, title:'Mango Shake', cat:'drinks', img:'https://images.unsplash.com/photo-1572441710263-7b4e3b6f6f8f?auto=format&fit=crop&w=800&q=60', rating:4.5, desc:'Refreshing mango milkshake.', prep:'5 mins', cook:'0 mins', serves:'1', ingredients:['1 cup mango pulp','1 cup milk','Sugar to taste','Ice'], steps:['Blend ingredients and serve chilled.'], gallery:[] }
+    ];
+
+    const grid = document.getElementById('grid');
+    const modal = document.getElementById('modal');
+
+    function renderCards(list){
+      grid.innerHTML = '';
+      list.forEach(r=>{
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${r.img}" alt="${r.title}"/>
+          <div class="body">
+            <div class="meta"><div><p class="title">${r.title}</p><div class="small">${r.cat.charAt(0).toUpperCase()+r.cat.slice(1)}</div></div><div class="small">⭐ ${r.rating}</div></div>
+            <p class="small">${r.desc}</p>
+            <div class="chips">
+              <div class="chip">Prep ${r.prep}</div>
+              <div class="chip">Cook ${r.cook}</div>
+            </div>
+            <div class="actions">
+              <button class="primary" data-id="${r.id}">View Recipe</button>
+              <button class="btn" data-id="fav-${r.id}">❤ Favorite</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Initial
+    renderCards(recipes);
+
+    // Filter buttons
+    document.getElementById('filters').addEventListener('click', e=>{
+      if(!e.target.dataset.cat) return;
+      document.querySelectorAll('#filters .btn').forEach(b=>b.classList.remove('active'));
+      e.target.classList.add('active');
+      const cat = e.target.dataset.cat;
+      const filtered = cat==='all' ? recipes : recipes.filter(r=>r.cat===cat);
+      renderCards(filtered);
+    });
+
+    // Search
+    document.getElementById('search').addEventListener('input', e=>{
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = recipes.filter(r => r.title.toLowerCase().includes(q) || r.desc.toLowerCase().includes(q) || r.ingredients.join(' ').toLowerCase().includes(q));
+      renderCards(filtered);
+    });
+
+    // Open modal
+    grid.addEventListener('click', e=>{
+      const btn = e.target.closest('button');
+      if(!btn) return;
+      const id = parseInt(btn.dataset.id);
+      if(!id) return;
+      const r = recipes.find(x=>x.id===id);
+      if(!r) return;
+      document.getElementById('modal-img').src = r.img;
+      document.getElementById('modal-title').textContent = r.title;
+      document.getElementById('modal-desc').textContent = r.desc;
+      document.getElementById('modal-rating').textContent = '⭐ '+r.rating;
+      document.getElementById('modal-prep').textContent = r.prep;
+      document.getElementById('modal-cook').textContent = r.cook;
+      document.getElementById('modal-serves').textContent = r.serves;
+      const ing = document.getElementById('modal-ingredients'); ing.innerHTML = '';
+      r.ingredients.forEach(i=>{ const li=document.createElement('li'); li.textContent=i; ing.appendChild(li); });
+      const steps = document.getElementById('modal-steps'); steps.innerHTML=''; r.steps.forEach(s=>{ const li=document.createElement('li'); li.textContent=s; steps.appendChild(li); });
+      const g = document.getElementById('modal-gallery'); g.innerHTML=''; (r.gallery||[]).forEach(src=>{ const im=document.createElement('img'); im.src=src; g.appendChild(im); });
+      modal.classList.add('open');
+    });
+
+    // Close modal on click outside
+    modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('open'); });
+
+    // keyboard esc
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') modal.classList.remove('open'); });
+
+  </script>
+</body>
+</html>
