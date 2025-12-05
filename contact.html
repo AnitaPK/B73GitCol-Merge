@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & Contact | Recipe Delight</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5eb;
+        }
+
+        /* HEADER */
+        header {
+            background: #ff6f3c;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* COMMON STYLES */
+        .container {
+            width: 85%;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .about-section h2 {
+            color: #ff6f3c;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .about-section p, 
+        .about-section li {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        ul {
+            margin-top: 10px;
+        }
+
+        /* CONTACT SECTION */
+        .contact-box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            width: 60%;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-box h2 {
+            color: #ff6f3c;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            margin-top: 15px;
+            background: #ff6f3c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #e85a2e;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #ff6f3c;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .contact-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>About Us & Contact Us</header>
+
+<div class="container">
+
+    <!-- ABOUT SECTION -->
+    <div class="about-section">
+        <h2>Welcome to Recipe Delight!</h2>
+        <p>
+            At Recipe Delight, cooking is more than just food — it's creativity, love, 
+            and happiness served on a plate. We share recipes that are easy to make, 
+            budget-friendly, and perfect for everyone.
+        </p>
+
+        <h2>Our Mission</h2>
+        <p>
+            Our mission is to make cooking enjoyable and accessible by providing 
+            delicious recipes prepared with simple everyday ingredients.
+        </p>
+
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>Easy step-by-step cooking instructions</li>
+            <li>Healthy and affordable dishes</li>
+            <li>Quick kitchen tips & tricks</li>
+            <li>Wide variety of recipes for all occasions</li>
+        </ul>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div class="contact-box">
+        <h2>Contact Us</h2>
+        <p>Have questions or suggestions? Send us a message!</p>
+
+        <form>
+            <label>Your Name</label>
+            <input type="text" placeholder="Enter your name" required>
+
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email" required>
+
+            <label>Your Message</label>
+            <textarea rows="5" placeholder="Write your message..." required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 Recipe Delight. All Rights Reserved.
+</footer>
+
+</body>
+</html>
