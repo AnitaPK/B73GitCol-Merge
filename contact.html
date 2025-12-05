@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About & Contact | Recipe Delight</title>
+    <title>About & Contact | FoodSite</title>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Main Site Styles -->
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./Homepage.css">
 
     <style>
         body {
@@ -12,27 +19,25 @@
             background-color: #fff5eb;
         }
 
-        /* HEADER */
-        header {
+        /* ABOUT PAGE SPECIFIC STYLING */
+        .page-header {
             background: #ff6f3c;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
             color: white;
-            font-size: 28px;
+            font-size: 30px;
             font-weight: bold;
             letter-spacing: 1px;
         }
 
-        /* COMMON STYLES */
         .container {
             width: 85%;
             margin: auto;
             padding: 40px 0;
         }
 
-        /* ABOUT SECTION */
         .about-section {
-            background: white;
+            background: #fff;
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -55,12 +60,12 @@
             margin-top: 10px;
         }
 
-        /* CONTACT SECTION */
+        /* CONTACT BOX */
         .contact-box {
-            background: white;
+            background: #fff;
             padding: 35px;
             border-radius: 15px;
-            width: 60%;
+            width: 70%;
             margin: auto;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
@@ -101,19 +106,9 @@
             background: #e85a2e;
         }
 
-        /* FOOTER */
-        footer {
-            background: #ff6f3c;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-            color: white;
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .contact-box {
-                width: 90%;
+                width: 95%;
             }
         }
     </style>
@@ -121,15 +116,50 @@
 
 <body>
 
-<header>About Us & Contact Us</header>
+<!-- 🔶 TOP INFO BAR -->
+<div class="topbar">
+    <div class="left">
+        <span><i class="fa-solid fa-phone"></i> +91-9876543210</span>
+        <span><i class="fa-solid fa-envelope"></i> info@foodsite.com</span>
+    </div>
+    <div class="right">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+    </div>
+</div>
+
+<!-- 🔶 MAIN NAVBAR -->
+<div class="navbar">
+    <div class="logo"><a href="./index.html"><i class="fa-solid fa-utensils"></i> FoodSite</a></div>
+
+    <ul class="nav-menu">
+        <li><a href="./Homepage.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="./recipe.html"><i class="fa-solid fa-bowl-food"></i> Recipes</a></li>
+        <li><a href="./contact.html"><i class="fa-solid fa-blog"></i> Blog</a></li>
+        <li><a class="active" href="./about.html"><i class="fa-solid fa-address-card"></i> About</a></li>
+        <li><a href="#"><i class="fa-solid fa-phone-volume"></i> Contact</a></li>
+    </ul>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+</div>
+
+<!-- PAGE TITLE -->
+<div class="page-header">About Us & Contact Us</div>
 
 <div class="container">
 
     <!-- ABOUT SECTION -->
     <div class="about-section">
-        <h2>Welcome to Recipe Delight!</h2>
+        <h2>Welcome to FoodSite!</h2>
         <p>
-            At Recipe Delight, cooking is more than just food — it's creativity, love, 
+            At FoodSite, cooking is more than just food — it's creativity, love, 
             and happiness served on a plate. We share recipes that are easy to make, 
             budget-friendly, and perfect for everyone.
         </p>
@@ -170,9 +200,21 @@
 
 </div>
 
+<!-- 🔶 FOOTER -->
 <footer>
-    © 2025 Recipe Delight. All Rights Reserved.
+    <div class="social-icons">
+        <i class="fa-brands fa-facebook fa-xl"></i>
+        <i class="fa-brands fa-instagram fa-xl"></i>
+        <i class="fa-brands fa-youtube fa-xl"></i>
+    </div>
+    <p>© 2025 FoodSite | All Rights Reserved.</p>
 </footer>
+
+<script>
+function toggleMenu(){
+    document.querySelector(".nav-menu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
