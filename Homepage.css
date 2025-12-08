@@ -9,6 +9,90 @@ body {
   background: #fffdf7;
   color: #333;
 }
+/* ============================
+   NAVBAR FIXED + VISIBLE
+============================ */
+.navbar {
+  width: 100%;
+  background: #ffffff;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.navbar .logo a {
+  text-decoration: none;
+  color: #ff6f3c;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+  color: #ff6f3c;
+}
+
+/* Search Box */
+.search-box input {
+  padding: 7px 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* Hamburger menu for mobile */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .search-box {
+    display: none;
+  }
+}
+
 
 /* HERO SECTION */
 .hero {

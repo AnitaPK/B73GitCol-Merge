@@ -1,122 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About & Contact | FoodSite</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | FoodSite</title>
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./Homepage.css">
 
-    <!-- Main Site Styles -->
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./Homepage.css">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff5eb;
-        }
-
-        /* ABOUT PAGE SPECIFIC STYLING */
-        .page-header {
-            background: #ff6f3c;
-            padding: 30px;
-            text-align: center;
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .container {
-            width: 85%;
-            margin: auto;
-            padding: 40px 0;
-        }
-
-        .about-section {
-            background: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-        }
-
-        .about-section h2 {
-            color: #ff6f3c;
-            font-size: 26px;
-            margin-bottom: 10px;
-        }
-
-        .about-section p, 
-        .about-section li {
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        ul {
-            margin-top: 10px;
-        }
-
-        /* CONTACT BOX */
-        .contact-box {
-            background: #fff;
-            padding: 35px;
-            border-radius: 15px;
-            width: 70%;
-            margin: auto;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
-
-        .contact-box h2 {
-            color: #ff6f3c;
-            margin-bottom: 15px;
-        }
-
-        label {
-            font-weight: 600;
-            margin-top: 10px;
-            display: block;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 6px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 15px;
-        }
-
-        button {
-            margin-top: 15px;
-            background: #ff6f3c;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 8px;
-            width: 100%;
-        }
-
-        button:hover {
-            background: #e85a2e;
-        }
-
-        @media (max-width: 768px) {
-            .contact-box {
-                width: 95%;
-            }
-        }
-    </style>
+<style>
+body {
+    background: #fff5eb;
+    font-family: Poppins, sans-serif;
+}
+.page-header {
+    background: #ff6f3c;
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+.contact-box {
+    width: 80%;
+    background: #fff;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+label {
+    margin-top: 10px;
+    display: block;
+    font-weight: 600;
+}
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+button {
+    background: #ff6f3c;
+    color: #fff;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    margin-top: 12px;
+    cursor: pointer;
+}
+button:hover {
+    background: #e85625;
+}
+</style>
 </head>
 
 <body>
 
-<!-- 🔶 TOP INFO BAR -->
+<!-- TOP BAR -->
 <div class="topbar">
     <div class="left">
         <span><i class="fa-solid fa-phone"></i> +91-9876543210</span>
@@ -129,78 +70,42 @@
     </div>
 </div>
 
-<!-- 🔶 MAIN NAVBAR -->
+<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo"><a href="./index.html"><i class="fa-solid fa-utensils"></i> FoodSite</a></div>
 
     <ul class="nav-menu">
-        <li><a href="./Homepage.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="./index.html"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="./recipe.html"><i class="fa-solid fa-bowl-food"></i> Recipes</a></li>
-        <li><a href="./contact.html"><i class="fa-solid fa-blog"></i> Blog</a></li>
-        <li><a class="active" href="./about.html"><i class="fa-solid fa-address-card"></i> About</a></li>
-        <li><a href="#"><i class="fa-solid fa-phone-volume"></i> Contact</a></li>
+        <li><a href="#"><i class="fa-solid fa-blog"></i> Blog</a></li>
+        <li><a href="./about.html"><i class="fa-solid fa-address-card"></i> About</a></li>
+        <li><a class="active" href="./contact.html"><i class="fa-solid fa-phone-volume"></i> Contact</a></li>
     </ul>
 
-    <div class="search-box">
-        <input type="text" placeholder="Search...">
-    </div>
-
-    <div class="hamburger" onclick="toggleMenu()">
-        <i class="fa-solid fa-bars"></i>
-    </div>
+    <div class="search-box"><input type="text" placeholder="Search..."></div>
+    <div class="hamburger" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
 </div>
 
-<!-- PAGE TITLE -->
-<div class="page-header">About Us & Contact Us</div>
+<div class="page-header">Contact Us</div>
 
-<div class="container">
+<div class="contact-box">
+    <h2>Get in Touch</h2>
+    <p>We’d love to hear from you!</p>
 
-    <!-- ABOUT SECTION -->
-    <div class="about-section">
-        <h2>Welcome to FoodSite!</h2>
-        <p>
-            At FoodSite, cooking is more than just food — it's creativity, love, 
-            and happiness served on a plate. We share recipes that are easy to make, 
-            budget-friendly, and perfect for everyone.
-        </p>
+    <form>
+        <label>Your Name</label>
+        <input type="text" placeholder="Enter your name" required>
 
-        <h2>Our Mission</h2>
-        <p>
-            Our mission is to make cooking enjoyable and accessible by providing 
-            delicious recipes prepared with simple everyday ingredients.
-        </p>
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
 
-        <h2>Why Choose Us?</h2>
-        <ul>
-            <li>Easy step-by-step cooking instructions</li>
-            <li>Healthy and affordable dishes</li>
-            <li>Quick kitchen tips & tricks</li>
-            <li>Wide variety of recipes for all occasions</li>
-        </ul>
-    </div>
+        <label>Your Message</label>
+        <textarea rows="5" placeholder="Write message..." required></textarea>
 
-    <!-- CONTACT SECTION -->
-    <div class="contact-box">
-        <h2>Contact Us</h2>
-        <p>Have questions or suggestions? Send us a message!</p>
-
-        <form>
-            <label>Your Name</label>
-            <input type="text" placeholder="Enter your name" required>
-
-            <label>Email Address</label>
-            <input type="email" placeholder="Enter your email" required>
-
-            <label>Your Message</label>
-            <textarea rows="5" placeholder="Write your message..." required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
-
+        <button type="submit">Send Message</button>
+    </form>
 </div>
 
-<!-- 🔶 FOOTER -->
 <footer>
     <div class="social-icons">
         <i class="fa-brands fa-facebook fa-xl"></i>
@@ -211,7 +116,7 @@
 </footer>
 
 <script>
-function toggleMenu(){
+function toggleMenu() {
     document.querySelector(".nav-menu").classList.toggle("active");
 }
 </script>

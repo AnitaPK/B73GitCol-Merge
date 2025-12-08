@@ -1,149 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Two Row Navbar</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Food Archive</title>
 
-<!-- FontAwesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- custom css  -->
- <link rel="stylesheet" href="./styles.css" >
- <link rel="stylesheet" href="./Homepage.css" >
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="Homepage.css" />
 </head>
+
 <body>
-    <!-- TOP INFO BAR -->
-<div class="topbar">
-    <div class="left">
-        <span><i class="fa-solid fa-phone"></i> +91-9876543210</span>
-        <span><i class="fa-solid fa-envelope"></i> info@foodsite.com</span>
-    </div>
-    <div class="right">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-youtube"></i>
-    </div>
-</div>
 
 <!-- MAIN NAVBAR -->
 <div class="navbar">
-    <div class="logo"><a href="./index.html"><i class="fa-solid fa-utensils"></i> FoodSite</a></div>
+  <div class="logo">
+    <a href="./index.html"><i class="fa-solid fa-utensils"></i> FoodSite</a>
+  </div>
 
-    <ul class="nav-menu">
-        <li><a href="./Homepage.html"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="./recipe.html"><i class="fa-solid fa-bowl-food"></i> Recipes</a></li>
-        <li><a href="#"><i class="fa-solid fa-blog"></i> Blog</a></li>
-        <li><a href="#"><i class="fa-solid fa-address-card"></i> About</a></li>
-        <li><a href="#"><i class="fa-solid fa-phone-volume"></i> Contact</a></li>
-    </ul>
+  <ul class="nav-menu">
+    <li><a class="active" href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+    <li><a href="./recipe.html"><i class="fa-solid fa-bowl-food"></i> Recipes</a></li>
+    <li><a href="#"><i class="fa-solid fa-blog"></i> Blog</a></li>
+    <li><a href="./about.html"><i class="fa-solid fa-address-card"></i> About</a></li>
+    <li><a href="./contact.html">Contact</a></li>
+  </ul>
 
-    <div class="search-box">
-        <input type="text" placeholder="Search...">
-    </div>
+  <div class="search-box">
+    <input type="text" placeholder="Search...">
+  </div>
 
-    <div class="hamburger" onclick="toggleMenu()">
-        <i class="fa-solid fa-bars"></i>
-    </div>
-    </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</div>
 
 <!-- HERO SECTION -->
-  <section class="hero">
-    <h1 class="welcome">Welcome to Food Haven</h1>
-    <p class="quote">“Good food is the foundation of genuine happiness.”</p>
-  </section>
+<section class="hero">
+  <h1 class="welcome">Welcome to Food Haven</h1>
+  <p class="quote">“Good food is the foundation of genuine happiness.”</p>
+</section>
 
-  <!-- IMAGE ARCHIVE GRID -->
-  <section class="archive">
-    <h2 class="subheading">Our Delicious Archive</h2>
+<!-- IMAGE ARCHIVE GRID -->
+<section class="archive">
+  <h2 class="subheading">Our Delicious Archive</h2>
 
-    <div class="grid-container">
+  <div class="grid-container">
 
-      <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80" alt="dish 1">
-      </div>
-
-      <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="dish 2">
-      </div>
-
-
-      <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1200&q=80" alt="dish 4">
-      </div>
-
-      <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80" alt="dish 5">
-      </div>
-
-     
-
-      <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=80" alt="dish 6">
-      </div>
-
-     <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=80" alt="dish 7">
-      </div>
-      <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=1200&q=80" alt="dish 8">
-      </div>
-
-
-      <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80
-" alt="dish 9">
-      </div>
-
-     <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1447175008436-054170c2e979?auto=format&fit=crop&w=1200&q=80
-" alt="dish 10">
-      </div>
-      <div class="grid-item fade">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="dish 11">
-      </div>
-
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80" alt="dish 1">
     </div>
-  </section>
 
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="dish 2">
+    </div>
+
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1200&q=80" alt="dish 4">
+    </div>
+
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80" alt="dish 5">
+    </div>
+
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=80" alt="dish 6">
+    </div>
+
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=80" alt="dish 7">
+    </div>
+
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=1200&q=80" alt="dish 8">
+    </div>
+
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80" alt="dish 9">
+    </div>
+
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1447175008436-054170c2e979?auto=format&fit=crop&w=1200&q=80" alt="dish 10">
+    </div>
+
+    <div class="grid-item fade">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="dish 11">
+    </div>
+
+  </div>
+</section>
 
 
 
 <!-- FOOTER -->
 <footer>
-    <div class="social-icons">
-        <i class="fa-brands fa-facebook fa-xl"></i>
-        <i class="fa-brands fa-instagram fa-xl"></i>
-        <i class="fa-brands fa-youtube fa-xl"></i>
-    </div>
-    <p>© 2025 FoodSite | All Rights Reserved.</p>
+  <div class="social-icons">
+    <i class="fa-brands fa-facebook fa-xl"></i>
+    <i class="fa-brands fa-instagram fa-xl"></i>
+    <i class="fa-brands fa-youtube fa-xl"></i>
+  </div>
+  <p>© 2025 FoodSite | All Rights Reserved.</p>
 </footer>
 
-
 <script>
-function toggleMenu(){
-    document.querySelector(".nav-menu").classList.toggle("active");
+function toggleMenu() {
+  document.querySelector(".nav-menu").classList.toggle("active");
 }
-</script>
 
-  <script>
-    // Fade-in Scroll Animation
-    const items = document.querySelectorAll('.fade');
-
-    function fadeAnimation() {
-      items.forEach(item => {
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          item.classList.add("visible");
-        }
-      });
+// Fade-in animation
+const items = document.querySelectorAll('.fade');
+function fadeAnimation() {
+  items.forEach(item => {
+    const rect = item.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 50) {
+      item.classList.add("visible");
     }
+  });
+}
 
-    window.addEventListener("scroll", fadeAnimation);
-    // trigger on load
-    window.addEventListener("load", fadeAnimation);
-  </script>
+window.addEventListener("scroll", fadeAnimation);
+window.addEventListener("load", fadeAnimation);
+</script>
 
 </body>
 </html>
